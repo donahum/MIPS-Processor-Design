@@ -28,7 +28,7 @@ module register_file_tb;
   // interface
   register_file_if rfif ();
   // test program
-  test PROG ();
+  test PROG (.CLK,.nRST,.rfif);
   // DUT
 `ifndef MAPPED
   register_file DUT(CLK, nRST, rfif);
@@ -48,5 +48,38 @@ module register_file_tb;
 
 endmodule
 
-program test;
+program test( input logic CLK, output logic nRST, register_file_if rfif) ;
+initial
+begin
+
+
+      rfif.wsel=4;
+      rfif.wdat=432;
+      rfif.WEN = 1;
+      @(posedge CLK);
+      @(posedge CLK);
+      rfif.WEN = 0;
+      rfif.rsel1 = 4;
+      rfif.rsel2 = 6;
+      @(posedge CLK);
+      @(posedge CLK);
+      assert (rfif.rdat1==432) $display("ohh mercer"); else $error("errrrrorrrr!");
+      assert (rfif.rdat2==0) $display(":)"); else $error("whaaaaaat it was there 5 minutes ago");
+      nRST = 0;
+      @(posedge CLK);
+      nRST = 1;
+      @(posedge CLK);
+      rfif.wsel = 0;
+      rfif.wdat = 24;
+      rfif.WEN=1;
+      @(posedge CLK);
+      @(posedge CLK);
+      rfif.WEN=0;
+      rfif.rsel1=0;
+      rfif.rsel2=4;
+      @(posedge CLK);
+      @(posedge CLK);
+
+      $finish;
+end
 endprogram
