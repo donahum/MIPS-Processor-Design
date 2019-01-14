@@ -18,9 +18,9 @@ module register_file_tb;
   logic CLK = 0, nRST;
 
   // test vars
-  	//int v1 = 1;
-  	//int v2 = 4721;
-  	//int v3 = 25119;
+  int v1 = 1;
+  int v2 = 4721;
+  int v3 = 25119;
 
   // clock
   always #(PERIOD/2) CLK++;
@@ -46,43 +46,6 @@ module register_file_tb;
   );
 `endif
 
-/*initial begin
-	
-end*/
-
-task writeAndRead (input bit [4:0] wr_sel, [31:0] wr_dat);
-	rfif.WEN = 0;
-	rfif.wsel = '0;
-	rfif.rsel1 = '0;
-	rfif.rsel2 = '0;
-	rfif.wdat = '0;
-	#(PERIOD);
-
-	rfif.WEN = 1;
-	rfif.wsel = wr_sel;
-	rfif.wdat = wr_dat;
-	#(PERIOD);
-
-	rfif.WEN = 0;
-	rfif.wsel = '0;
-	rfif.wdat = '0;
-	rfif.rsel1 = wr_sel;
-	rfif.rsel2 = wr_sel;
-	#(PERIOD);
-
-	rfif.WEN = 1;
-	rfif.wsel = wr_sel;
-	rfif.wdat = '0;
-	#(PERIOD);
-
-	rfif.WEN = 0;
-	rfif.wsel = '0;
-	rfif.rsel1 = '0;
-	rfif.rsel2 = '0;
-	rfif.wdat = '0;
-	#(PERIOD);
-endtask
-
 endmodule
 
 program test (
@@ -92,18 +55,11 @@ program test (
   parameter PERIOD = 10;
   initial begin
 	$monitor("@%00g CLK = %b nRST = %b", $time, CLK, nRST);
-
+    
 	#(PERIOD);
 	nRST = 1'b0;
 	#(PERIOD);
-	nRST = 1'b1;
-    
-	for(int i = 0; i < 32; i++)
-	begin
-		writeAndRead(i, 'hFFFFFFFF);
-	end
 
-	/*
 	//test writing to reg1
 	#(PERIOD);
 	nRST = 1'b1;
@@ -116,7 +72,7 @@ program test (
 	#(PERIOD);
 	nRST = 1'b1;
 	tbrf.WEN = 1'b1;
-	tbrf.wsel = 5'b11111;
+	tbrf.wsel = 5'b00010;
 	tbrf.wdat = '0;
 	#(PERIOD);
 	
@@ -145,8 +101,8 @@ program test (
 	tbrf.wsel = 5'b00000;
 	tbrf.rsel1 = 5'b00000;
 	tbrf.rsel2 = 5'b00001;
-	#(PERIOD);*/
+	#(PERIOD);
 
-	//$finish;
+	$finish;
   end
 endprogram
