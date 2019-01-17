@@ -2,15 +2,18 @@
   Eric Villasenor
   evillase@gmail.com
 
-  register file test bench
+   file test bench
 */
 
 // mapped needs this
+
+`include "cpu_types_pkg.vh"
 `include "alu_if.vh"
 
 // mapped timing needs this. 1ns is too fast
 `timescale 1 ns / 1 ns
 
+import cpu_types_pkg::*;
 module alu_tb;
 
   parameter PERIOD = 10;
@@ -29,7 +32,7 @@ module alu_tb;
   // interface
   alu_if rfif ();
   // test program
-  test PROG (.rfif);
+  test PROG (CLK , rfif);
   // DUT
 `ifndef MAPPED
   alu DUT(rfif);
@@ -47,7 +50,7 @@ module alu_tb;
 
 endmodule
 
-program test(alu_if rfif) ;
+program test(input logic CLK, alu_if.tb rfif) ;
 initial
 begin
 	rfif.portA = 32'b00001111000000111100000011110011;
