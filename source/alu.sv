@@ -7,8 +7,8 @@ import cpu_types_pkg::*;
 (
   alu_if.rf rfif
 );
-word_t out;
-assign rfif.portOut = out;
+logic [32:0] out = '{default:'0};
+assign rfif.portOut = out[31:0];
 always_comb
 begin
 	casez(rfif.aluop)
@@ -24,6 +24,8 @@ begin
 		ALU_SLTU: out = rfif.portA < rfif.portB;
 	endcase
 end
-
+assign rfif.zero = (rfif.portOut == 0);
+assign rfif.overflow = (out[32]==1);
+assign rfif.negative = (out[31]==1);
 
 endmodule
