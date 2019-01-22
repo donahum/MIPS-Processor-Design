@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>Questa Coverage Report</title>
+  <!-- original name: _alu_tb_DUTContentFrame4.htm -->
+  <link rel="StyleSheet" media="print"  href="../css/ucdb2htmlP.css"/>
+  <link rel="StyleSheet" media="screen" href="../css/ucdb2html.css"/>
+  <link rel="StyleSheet" media="screen" href="../css/ucdb2html_newlook.css"/>
+  <script type="text/javascript" src="../scripts/jquery.js"></script>
+  <script type="text/javascript" src="../scripts/showhide.js"></script>
+  
+</head>
+<body id="ucdb2html_detail" onload="showLast()">
+  <h1><span class="strip">Questa</span> Condition Coverage Report</h1>
+  <h3>Scope: /<a href="z1643348548_2504951754_0.htm">alu_tb</a>/<a href="z1548885283_3034267599_0.htm">DUT</a></h3>
+  <!-- use script block so buttons vanish when JavaScript is disabled -->
+  <script type="text/javascript">
+  <!--
+  document.write(
+    '<table class="buttons" cellspacing="2" cellpadding="2"><tr>' +
+       '<td id="showAll" width="100" onclick="showAll()" class="button_on" ' +
+           'title="Display all coverage scopes and bins.">Show All</td>' +
+       '<td id="showCov" width="100" onclick="showCov()" class="button_off" ' +
+           'title="Display only covered scopes and bins.">Show Covered</td>' +
+       '<td id="showMis" width="100" onclick="showMis()" class="button_off" ' +
+           'title="Display only uncovered scopes and bins.">Show Missing</td>' +
+    '</tr></table>');
+  //-->
+  </script>
+  <div class="missing"><a name="cvg123"/><hr/><table>
+  <tr s="3" x="FC" lnk="__HDL_srcfile_3.htm#21" z="(((aluif.port_a[31] == 0) & (aluif.port_b[31] == 0)) & (aluif.output_port[31] == 1))" c="R" p="0.00" d="0" F="1"/>
+  <tr/>
+  <tr z="(aluif.port_a[31] == 0)" c="r" r="'_0' not hit" i="Hit '_0'"/>
+  <tr z="(aluif.port_b[31] == 0)" c="r" r="'_0' not hit" i="Hit '_0'"/>
+  <tr z="(aluif.output_port[31] == 1)" c="r" r="'_0' not hit" i="Hit '_0'"/>
+  <tr/>
+  <tr n="1" z="(aluif.port_a[31] == 0)_0" h1="0" t="c" c1="((aluif.output_port[31] == 1) && (aluif.port_b[31] == 0))"/>
+  <tr n="2" z="(aluif.port_a[31] == 0)_1" h1="1" t="c" c1="((aluif.output_port[31] == 1) && (aluif.port_b[31] == 0))"/>
+  <tr n="3" z="(aluif.port_b[31] == 0)_0" h1="0" t="c" c1="((aluif.output_port[31] == 1) && (aluif.port_a[31] == 0))"/>
+  <tr n="4" z="(aluif.port_b[31] == 0)_1" h1="1" t="c" c1="((aluif.output_port[31] == 1) && (aluif.port_a[31] == 0))"/>
+  <tr n="5" z="(aluif.output_port[31] == 1)_0" h1="0" t="c" c1="((aluif.port_a[31] == 0) & (aluif.port_b[31] == 0))"/>
+  <tr n="6" z="(aluif.output_port[31] == 1)_1" h1="1" t="c" c1="((aluif.port_a[31] == 0) & (aluif.port_b[31] == 0))"/>
+  </table>
+</div><div><a name="cvg125"/><hr/><table>
+  <tr s="3" x="FC" lnk="__HDL_srcfile_3.htm#24" z="(((aluif.port_a[31] == 1) & (aluif.port_b[31] == 1)) & (aluif.output_port[31] == 0))" c="Y" p="66.66" d="0" F="1"/>
+  <tr/>
+  <tr z="(aluif.port_a[31] == 1)" c="r" r="'_0' not hit" i="Hit '_0'"/>
+  <tr z="(aluif.port_b[31] == 1)" c="g" r="" i=""/>
+  <tr z="(aluif.output_port[31] == 0)" c="g" r="" i=""/>
+  <tr/>
+  <tr n="1" z="(aluif.port_a[31] == 1)_0" h1="0" t="c" c1="((aluif.output_port[31] == 0) && (aluif.port_b[31] == 1))"/>
+  <tr n="2" z="(aluif.port_a[31] == 1)_1" h1="1" t="c" c1="((aluif.output_port[31] == 0) && (aluif.port_b[31] == 1))"/>
+  <tr n="3" z="(aluif.port_b[31] == 1)_0" h1="1" t="c" c1="((aluif.output_port[31] == 0) && (aluif.port_a[31] == 1))"/>
+  <tr n="4" z="(aluif.port_b[31] == 1)_1" h1="1" t="c" c1="((aluif.output_port[31] == 0) && (aluif.port_a[31] == 1))"/>
+  <tr n="5" z="(aluif.output_port[31] == 0)_0" h1="1" t="c" c1="((aluif.port_a[31] == 1) & (aluif.port_b[31] == 1))"/>
+  <tr n="6" z="(aluif.output_port[31] == 0)_1" h1="1" t="c" c1="((aluif.port_a[31] == 1) & (aluif.port_b[31] == 1))"/>
+  </table>
+</div><div class="missing"><a name="cvg127"/><hr/><table>
+  <tr s="3" x="FC" lnk="__HDL_srcfile_3.htm#33" z="(((aluif.port_a[31] == 0) & (aluif.port_b[31] == 1)) & (aluif.output_port[31] == 1))" c="R" p="0.00" d="0" F="1"/>
+  <tr/>
+  <tr z="(aluif.port_a[31] == 0)" c="r" r="'_0' not hit" i="Hit '_0'"/>
+  <tr z="(aluif.port_b[31] == 1)" c="r" r="'_0' not hit" i="Hit '_0'"/>
+  <tr z="(aluif.output_port[31] == 1)" c="r" r="'_0' not hit" i="Hit '_0'"/>
+  <tr/>
+  <tr n="1" z="(aluif.port_a[31] == 0)_0" h1="0" t="c" c1="((aluif.output_port[31] == 1) && (aluif.port_b[31] == 1))"/>
+  <tr n="2" z="(aluif.port_a[31] == 0)_1" h1="1" t="c" c1="((aluif.output_port[31] == 1) && (aluif.port_b[31] == 1))"/>
+  <tr n="3" z="(aluif.port_b[31] == 1)_0" h1="0" t="c" c1="((aluif.output_port[31] == 1) && (aluif.port_a[31] == 0))"/>
+  <tr n="4" z="(aluif.port_b[31] == 1)_1" h1="1" t="c" c1="((aluif.output_port[31] == 1) && (aluif.port_a[31] == 0))"/>
+  <tr n="5" z="(aluif.output_port[31] == 1)_0" h1="0" t="c" c1="((aluif.port_a[31] == 0) & (aluif.port_b[31] == 1))"/>
+  <tr n="6" z="(aluif.output_port[31] == 1)_1" h1="1" t="c" c1="((aluif.port_a[31] == 0) & (aluif.port_b[31] == 1))"/>
+  </table>
+</div><div class="missing"><a name="cvg129"/><hr/><table>
+  <tr s="3" x="FC" lnk="__HDL_srcfile_3.htm#36" z="(((aluif.port_a[31] == 1) & (aluif.port_b[31] == 0)) & (aluif.output_port[31] == 0))" c="R" p="0.00" d="0" F="1"/>
+  <tr/>
+  <tr z="(aluif.port_a[31] == 1)" c="r" r="'_0' not hit" i="Hit '_0'"/>
+  <tr z="(aluif.port_b[31] == 0)" c="r" r="'_0' not hit" i="Hit '_0'"/>
+  <tr z="(aluif.output_port[31] == 0)" c="r" r="'_0' not hit" i="Hit '_0'"/>
+  <tr/>
+  <tr n="1" z="(aluif.port_a[31] == 1)_0" h1="0" t="c" c1="((aluif.output_port[31] == 0) && (aluif.port_b[31] == 0))"/>
+  <tr n="2" z="(aluif.port_a[31] == 1)_1" h1="1" t="c" c1="((aluif.output_port[31] == 0) && (aluif.port_b[31] == 0))"/>
+  <tr n="3" z="(aluif.port_b[31] == 0)_0" h1="0" t="c" c1="((aluif.output_port[31] == 0) && (aluif.port_a[31] == 1))"/>
+  <tr n="4" z="(aluif.port_b[31] == 0)_1" h1="1" t="c" c1="((aluif.output_port[31] == 0) && (aluif.port_a[31] == 1))"/>
+  <tr n="5" z="(aluif.output_port[31] == 0)_0" h1="0" t="c" c1="((aluif.port_a[31] == 1) & (aluif.port_b[31] == 0))"/>
+  <tr n="6" z="(aluif.output_port[31] == 0)_1" h1="1" t="c" c1="((aluif.port_a[31] == 1) & (aluif.port_b[31] == 0))"/>
+  </table>
+</div><script type="text/javascript" src="../scripts/buildecpage.js"></script>
+  <!-- make sure jumps to last few line nos work -->
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  
+</body>
+</html>
