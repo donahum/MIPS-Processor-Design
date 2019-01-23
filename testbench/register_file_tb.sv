@@ -51,8 +51,9 @@ endmodule
 program test( input logic CLK, output logic nRST, register_file_if rfif) ;
 initial
 begin
-
-
+      nRST = 0;
+      @(posedge CLK);
+      nRST = 1;
       rfif.wsel=4;
       rfif.wdat=432;
       rfif.WEN = 1;
