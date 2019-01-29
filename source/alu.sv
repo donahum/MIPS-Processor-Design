@@ -12,7 +12,7 @@ assign rfif.portOut = out;
 always_comb
 begin
 	casez(rfif.aluop)
-		ALU_SLL: out = rfif.portB << rfif.portA[4:0];  ## swap them....
+		ALU_SLL: out = rfif.portB << rfif.portA[4:0];  
 		ALU_SRL: out = rfif.portB >> rfif.portA[4:0];
 		ALU_ADD: out = rfif.portA + rfif.portB;
 		ALU_SUB: out = rfif.portA - rfif.portB;
