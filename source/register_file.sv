@@ -7,12 +7,12 @@ module register_file(input logic CLK, nRST, register_file_if.rf rfif);
 
 	word_t [31:0] regs;
 
-	always_ff @(posedge CLK) begin
+	always_ff @(posedge CLK, negedge nRST) begin
 		if (!nRST) begin
-			regs = '{default: '0};
+			regs <= '{default: '0};
 		end else begin
 			if (rfif.WEN && (rfif.wsel != 'b0)) begin
-				regs[rfif.wsel] = rfif.wdat;
+				regs[rfif.wsel] <= rfif.wdat;
 			end
 		end
 	end

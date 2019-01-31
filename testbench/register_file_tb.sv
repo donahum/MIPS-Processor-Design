@@ -98,10 +98,26 @@ program test (
 	#(PERIOD);
 	nRST = 1'b1;
     
-	for(int i = 0; i < 32; i++)
+	/*for(int i = 0; i < 32; i++)
 	begin
 		writeAndRead(i, 'hFFFFFFFF);
-	end
+	end*/
+
+	#(PERIOD);
+	#(PERIOD);
+	#(PERIOD);
+	#(PERIOD);
+
+	tbrf.WEN = 0;
+	tbrf.wsel = '0;
+	tbrf.rsel1 = '0;
+	tbrf.rsel2 = '1;
+	tbrf.wdat = '1;
+
+	#(PERIOD);
+	#(PERIOD);
+	#(PERIOD);
+	#(PERIOD);
 
 	/*
 	//test writing to reg1
