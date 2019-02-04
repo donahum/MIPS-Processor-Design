@@ -77,7 +77,7 @@ module control_unit(input logic CLK, nRST, control_unit_if.cu cuif);
 					end
 
 					SLTU: begin
-						cuif.alu_op = ALU_SLT;
+						cuif.alu_op = ALU_SLTU;
 					end
 
 					SLLV: begin

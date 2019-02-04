@@ -25,7 +25,7 @@ module datapath (
 	word_t pc, npc, npc_latched, pc_select;
 
 	//branch signals
-	word_t branch_address;
+	word_t branch_address, branch_offset;
 	logic branch, beq_success, bne_success;
 	word_t jump_address;
 	//instruction breakdown
@@ -52,7 +52,7 @@ module datapath (
 		//parameter ALU_TO_REG = 0;
 		//parameter MEM_TO_REG = 1;
 	assign memtoregMUX = cuif.memtoreg ? dpif.dmemload : aluif.output_port;
-	assign regif.wdat = cuif.jal ? npc_latched : memtoregMUX;
+	assign regif.wdat = cuif.jal ? npc : memtoregMUX;	//used to be npclatched
 	
 	//alu routing
 	
@@ -91,12 +91,13 @@ module datapath (
 
 	//pc dataflow
 	assign npc = pc + 4;
-	assign branch_address = npc + (imm << 2);
+	assign branch_offset = ext_imm << 2;
+	assign branch_address = npc + branch_offset;
 	assign beq_success = cuif.beq && aluif.zero;
 	assign bne_success = cuif.bne && ~aluif.zero;
 	assign branch = beq_success || bne_success;
 	assign branchMUX = branch ? branch_address : npc;
-	assign jump_address = {npc [31:28], dpif.imemload [25:0], 2'b00};
+	assign jump_address = {pc [31:28], dpif.imemload [25:0], 2'b00};
 	assign jumpMUX = cuif.jump ? jump_address : branchMUX;
 	assign pc_select = cuif.jr ? regif.rdat1 : jumpMUX;
 
@@ -111,6 +112,7 @@ module datapath (
 	end
 
 	always_comb begin
+
 		if(cuif.jal) begin
 			regif.wsel = 'h1F;
 		//reg_dst parameters
@@ -130,7 +132,11 @@ module datapath (
 					regif.WEN = 0;
 				end
 			end else begin
-				regif.WEN = 1;
+				if(dpif.ihit) begin
+					regif.WEN = 1;
+				end else begin
+					regif.WEN = 0;
+				end
 			end
 		end else begin
 			regif.WEN = 0;
