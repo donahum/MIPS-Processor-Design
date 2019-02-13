@@ -12,7 +12,7 @@ import cpu_types_pkg::*;
 word_t [31:0]regfile='{default:'0};
 assign  rfif.rdat1=regfile[rfif.rsel1];
 assign  rfif.rdat2=regfile[rfif.rsel2];
-  always_ff @(posedge CLK or negedge nRST)
+  always_ff @(negedge CLK or negedge nRST)
   begin
     if (!nRST)
     begin
