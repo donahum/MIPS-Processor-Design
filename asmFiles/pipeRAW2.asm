@@ -1,0 +1,6 @@
+ori $1,$0,0x2019
+sw $1,0xfffc($0)
+lw $3,0xfffc($0)
+ori $1,$3,0x0
+halt
+
